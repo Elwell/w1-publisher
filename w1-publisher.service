@@ -1,0 +1,15 @@
+[Unit]
+Description=1-Wire temperature to MQTT sender
+Documentation=https://github.com/Elwell/w1-publisher
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/sbin/read_ds18b20.py
+User=root
+Group=root
+# -rw-r--r-- 1 root root 4096 Feb 22 13:46 therm_bulk_read
+
+[Install]
+WantedBy=multi-user.target
